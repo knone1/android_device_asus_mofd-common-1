@@ -1,0 +1,2 @@
+allow dhcp devpts:chr_file rw_file_perms;
+allow dhcp self:rawip_socket { create write setopt };

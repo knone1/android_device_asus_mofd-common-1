@@ -1,0 +1,29 @@
+# Rules for mmgr
+type customize_service, domain, mlstrustedobject;
+type customize_service_exec, exec_type, file_type;
+init_daemon_domain(customize_service)
+
+allow customize_service init:unix_stream_socket connectto;
+allow customize_service sysfs:file  { read write ioctl };
+allow customize_service shell_exec:file { execute execute_no_trans read open ioctl };
+allow customize_service default_prop:property_service set;
+allow customize_service self:capability { dac_override dac_read_search fowner chown fsetid };
+allow customize_service system_file:file { execute_no_trans };
+
+allow customize_service efs_file:dir search;
+allow customize_service efs_file:dir r_dir_perms;
+allow customize_service efs_file:dir { search write remove_name unlink add_name link };
+allow customize_service efs_file:file { create read write ioctl open getattr setattr };
+allow customize_service efs_file:file { unlink link };
+allow customize_service factory_file:dir search;
+allow customize_service factory_file:dir r_dir_perms;
+allow customize_service factory_file:file { read write ioctl open getattr };
+
+allow customize_service self:process execmem;
+
+allow customize_service property_socket:sock_file { read write ioctl open getattr };
+allow customize_service device:dir { read write open getattr };
+
+
+allow customize_service self:socket create_socket_perms;
+allow customize_service tty_device:chr_file rw_file_perms;

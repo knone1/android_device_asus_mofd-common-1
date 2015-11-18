@@ -1,0 +1,38 @@
+
+# binfmt_misc - Used by houdini
+type binfmt_misc, fs_type;
+
+type bt_device, dev_type;
+
+# thermal
+type sysfs_coretemp, fs_type, sysfs_type;
+type sysfs_thermal_writable, fs_type, sysfs_type;
+
+
+type sysfs_uart_power_ctrl, fs_type, sysfs_type;
+type sysfs_hsic_enable, fs_type, sysfs_type;
+
+type sysfs_autosuspend_enable, fs_type, sysfs_type;
+
+# wv drm sysfs file
+type sysfs_drm_resource, fs_type, sysfs_type;
+
+type factory_file, file_type;
+
+type bluetooth_factory_file, fs_type;
+
+# sensorhubd
+type sysfs_hwmon_control, fs_type, sysfs_type;
+type sysfs_gpio_value, fs_type, sysfs_type;
+
+type sl_si_service_exec, exec_type, file_type;
+
+
+type sysfs_thermal_management, fs_type, sysfs_type;
+
+
+
+type thermal_socket, file_type;
+type sensorhubd_socket, file_type;
+
+type nvm_ctl_socket, file_type;

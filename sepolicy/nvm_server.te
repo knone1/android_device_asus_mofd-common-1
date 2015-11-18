@@ -1,0 +1,15 @@
+type nvm_server, domain;
+type nvm_server_exec, exec_type, file_type;
+init_daemon_domain(nvm_server);
+
+allow nvm_server mmgr:unix_stream_socket connectto;
+allow nvm_server socket_device:sock_file  { read write ioctl open };
+allow nvm_server mmgr_socket:sock_file  { read write };
+allow nvm_server unlabeled:dir { search write add_name };
+allow nvm_server tty_device:chr_file { read write ioctl open getattr };
+allow nvm_server efs_file:file create_file_perms;
+allow nvm_server efs_file:dir { search write read remove_name add_name add_name };
+allow nvm_server efs_file:file { read write ioctl open getattr unlink };
+allow nvm_server factory_file:dir { search write read };
+allow nvm_server factory_file:file { read write create ioctl open getattr};
+

@@ -1,0 +1,7 @@
+allow radio_device sysfs:filesystem associate;
+allow radio unlabeled:dir rw_dir_perms;
+allow radio system_app_data_file:dir search;
+allow radio keystore:binder call;
+allow radio tty_device:chr_file rw_file_perms;
+allow radio self:sock_file { create write read ioctl };
+allow rild sysfs:file { read ioctl getattr };

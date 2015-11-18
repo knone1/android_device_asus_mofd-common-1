@@ -1,0 +1,9 @@
+# Additional vold rules
+allow vold self:key { write search };
+allow vold self:key setattr;
+allow vold system_data_file:dir setattr;
+allow vold ecryptfs:filesystem mount;
+allow vold ecryptfs:filesystem unmount;
+allow vold unlabeled:dir { add_name  write };
+allow vold factory_file:dir { search getattr read ioctl open };
+allow vold efs_file:dir { search getattr read ioctl open };

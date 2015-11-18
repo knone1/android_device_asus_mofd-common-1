@@ -1,0 +1,6 @@
+type aware_service,              service_manager_type;
+type display_service,            service_manager_type;
+type cws_service,                service_manager_type;
+type ISEP_service,                service_manager_type;
+type securityfile_service,               service_manager_type;
+type securitymanager_service,               service_manager_type;

@@ -1,0 +1,7 @@
+
+allow surfaceflinger sysfs_drm_resource:dir search;
+allow surfaceflinger sysfs_drm_resource:file { read getattr open };
+allow surfaceflinger unlabeled:dir search;
+allow surfaceflinger system_server_service:service_manager add;
+allow surfaceflinger self:capability sys_admin;
+allow surfaceflinger gpu_device:chr_file { read write ioctl open getattr };

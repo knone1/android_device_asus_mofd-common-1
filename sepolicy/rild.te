@@ -1,0 +1,6 @@
+allow rild socket_device:sock_file write;
+allow rild unlabeled:dir { search write add_name };
+allow rild sysfs:file { read write ioctl open getattr };
+allow rild radio_device:dir { search };
+allow rild radio_device:file { read write ioctl open getattr unlink lock };
+unix_socket_connect(rild, mmgr, mmgr)

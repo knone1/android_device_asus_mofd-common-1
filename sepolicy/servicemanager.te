@@ -1,0 +1,7 @@
+# Additional servicemanager rules
+allow servicemanager { gpsd init init_shell mmgr zygote }:dir search;
+allow servicemanager { gpsd init init_shell mmgr zygote }:file { read open getattr };
+allow servicemanager { gpsd init init_shell mmgr zygote }:process getattr;
+
+binder_use(servicemanager)
+binder_call(servicemanager, gpsd)

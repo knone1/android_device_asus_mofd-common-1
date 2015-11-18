@@ -1,0 +1,5 @@
+allow drmserver gpu_device:chr_file { read write ioctl open getattr };
+allow drmserver mediaserver:chr_file { read write ioctl open getattr };
+allow drmserver sep_device:chr_file { read write ioctl open getattr };
+allow drmserver system_data_file:dir { write add_name };
+allow drmserver system_data_file:file { create open append };

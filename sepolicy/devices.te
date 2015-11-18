@@ -1,0 +1,16 @@
+# Additional device rules
+type bluetooth_control, dev_type;
+
+type intel_sst_ctrl_device, dev_type;
+
+type switch_ctrl_device, dev_type;
+
+type sep_device, dev_type;
+
+
+type mmgr_socket, dev_type;
+
+type i2c_device, dev_type;
+type msr_device, dev_type;
+
+type hdcpd_data_file, file_type, data_file_type;

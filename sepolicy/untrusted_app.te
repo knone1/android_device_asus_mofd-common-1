@@ -1,0 +1,14 @@
+# Additional untrusted_app rules
+allow untrusted_app property_socket:file write;
+allow untrusted_app unlabeled:dir { rw_dir_perms setattr };
+
+allow untrusted_app graphics_device:dir search;
+allow untrusted_app unlabeled:dir { search read getattr };
+allow untrusted_app unlabeled:file { getattr };
+allow untrusted_app efs_file:dir { search open getattr };
+allow untrusted_app factory_file:dir { search read getattr };
+allow untrusted_app block_device:dir { search read open };
+allow untrusted_app graphics_device:dir { read open getattr };
+allow untrusted_app input_device:dir { read getattr };
+allow untrusted_app sepfs:dir { search open };
+allow untrusted_app hosts_data_file:file { read open getattr };

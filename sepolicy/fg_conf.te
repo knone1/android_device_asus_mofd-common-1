@@ -1,0 +1,10 @@
+# Rules for fg_conf
+type fg_conf, domain;
+type fg_conf_exec, exec_type, file_type;
+init_daemon_domain(fg_conf)
+
+allow fg_conf tty_device:chr_file { read write ioctl open getattr };
+allow fg_conf efs_file:file { read write ioctl open getattr };
+allow fg_conf efs_file:dir r_dir_perms;
+allow fg_conf unlabeled:file { open read };
+allow fg_conf unlabeled:dir search;

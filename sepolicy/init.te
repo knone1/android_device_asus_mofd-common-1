@@ -1,0 +1,18 @@
+allow init self:capability { sys_admin };
+allow init self:process execmem;
+allow init fuse:dir mounton;
+allow init vfat:dir search;
+allow init device:blk_file create_file_perms;
+allow init fuse:dir create_dir_perms;
+allow init fuse:file create_file_perms;
+allow init shell_data_file:file { read write open };
+# allow to write mediaserver pid to cgroup for mediaserver
+allow init mediaserver:process { setsched };
+domain_trans(init, rootfs, intel_prop)
+allow init shell_data_file:dir { write add_name };
+allow init shell_data_file:file create;
+allow init customize_service:file { execute_no_trans };
+allow init app_data_file:dir { read open };
+allow init system_file:dir { mounton };
+allow init efs_file:filesystem { relabelfrom relabelto mount };
+allow init factory_file:filesystem { relabelfrom relabelto mount };

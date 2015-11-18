@@ -1,0 +1,15 @@
+#============= gpsd ==============
+allow gpsd keystore:keystore_key saw;
+unix_socket_connect(gpsd, mmgr, mmgr)
+allow gpsd keystore:binder call;
+allow gpsd default_prop:property_service { set };
+allow gpsd property_socket:sock_file rw_file_perms;
+allow gpsd init:unix_stream_socket connectto;
+allow gpsd self:capability { net_admin };
+allow gpsd tty_device:chr_file rw_file_perms;
+allow gpsd socket_device:sock_file { write read };
+allow gpsd system_server:binder { call };
+allow gpsd system_server:unix_stream_socket { read write };
+allow gpsd sysfs_uart_power_ctrl:file { open read write };
+allow gpsd servicemanager:binder { call };
+wakelock_use(gpsd)

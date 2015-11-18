@@ -1,0 +1,6 @@
+allow zygote property_socket:sock_file write;
+allow zygote system_prop:property_service set;
+allow zygote self:process execmem;
+allow zygote gpu_device:chr_file { read write ioctl open getattr };
+allow zygote servicemanager:binder { call };
+allow zygote system_server:binder { call transfer };

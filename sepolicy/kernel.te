@@ -1,0 +1,11 @@
+# Additional kernel rules
+allow kernel self:capability net_bind_service;
+
+allow kernel radio_device:file relabelto;
+allow kernel self:capability { sys_admin mknod };
+allow kernel self:process setfscreate;
+allow kernel system_prop:property_service set;
+allow kernel self:tcp_socket create;
+
+#vnvm kthread
+allow kernel device:blk_file { create setattr getattr rw_file_perms};

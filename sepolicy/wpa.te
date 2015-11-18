@@ -1,0 +1,11 @@
+
+allow wpa factory_file:dir search;
+allow wpa factory_file:dir r_dir_perms;
+allow wpa factory_file:file { create read write ioctl open getattr };
+
+# Access to /config/wifi/*
+allow wpa efs_file:dir search;
+allow wpa efs_file:dir r_dir_perms;
+
+# Access to /config/wifi/country_code
+allow wpa efs_file:file { create read write ioctl open getattr };

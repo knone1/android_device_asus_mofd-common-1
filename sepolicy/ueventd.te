@@ -1,0 +1,4 @@
+allow ueventd sysfs_drm_resource:file { read write ioctl open getattr };
+allow ueventd sysfs_thermal_writable:file { read write ioctl open getattr };
+allow ueventd sysfs_thermal_management:file { read write ioctl open getattr };
+

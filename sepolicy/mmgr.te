@@ -1,0 +1,51 @@
+# Rules for mmgr
+type mmgr, domain, mlstrustedobject;
+type mmgr_exec, exec_type, file_type;
+init_daemon_domain(mmgr)
+
+
+allow mmgr efs_file:dir search;
+allow mmgr efs_file:dir r_dir_perms;
+allow mmgr efs_file:dir { search write remove_name unlink add_name link };
+allow mmgr efs_file:file { create read write ioctl open getattr };
+allow mmgr efs_file:file { unlink link };
+allow mmgr factory_file:dir search;
+allow mmgr factory_file:dir r_dir_perms;
+allow mmgr factory_file:file { read write ioctl open getattr };
+
+allow mmgr shell_exec:file rx_file_perms;
+allow mmgr system_file:file rx_file_perms;
+allow mmgr init:unix_stream_socket connectto;
+allow mmgr socket_device:sock_file write;
+allow mmgr property_socket:sock_file write;
+allow mmgr sysfs_wake_lock:file { read write open };
+allow mmgr system_prop:property_service set;
+
+allow mmgr keystore:binder call;
+allow mmgr system_data_file:file { write open unlink create };
+allow mmgr system_data_file:dir { write remove_name add_name };
+allow mmgr sysfs_uart_power_ctrl:file {  write open read };
+allow mmgr usb_device:chr_file { read write getattr open ioctl };
+allow mmgr usb_device:dir { read open search };
+allow mmgr cache_file:dir create_dir_perms;
+allow mmgr cache_file:file { write create unlink open };
+
+allow mmgr sysfs_hsic_enable:file { write open };
+allow mmgr self:process execmem;
+allow mmgr shell_exec:file { read execute open execute_no_trans };
+allow mmgr system_file:file execute_no_trans;
+allow mmgr zygote_exec:file rx_file_perms;
+allow mmgr tty_device:chr_file { read write ioctl open getattr };
+allow mmgr device:dir read;
+allow mmgr proc_cpuinfo:file { mounton };
+allow mmgr sysfs:file write;
+# ptrace to processes in the same domain for debugging crashes.
+allow mmgr self:process ptrace;
+
+allow mmgr sep_device:chr_file rw_file_perms;
+allow mmgr tty_device:chr_file rw_file_perms;
+allow mmgr socket_device:sock_file write;
+
+binder_use(mmgr)
+binder_call(mmgr, system_server)
+binder_call(mmgr, servicemanager)

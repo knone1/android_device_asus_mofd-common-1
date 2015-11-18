@@ -1,0 +1,8 @@
+allow shell factory_file:dir r_dir_perms;
+allow shell factory_file:file  { read open getattr ioctl };
+allow shell bluetooth_factory_file:dir search;
+allow shell bluetooth_factory_file:file { read write ioctl open getattr };
+allow shell unlabeled:dir { read getattr open};
+allow shell unlabeled:file getattr;
+allow shell proc_cpuinfo:file mounton;
+allow shell dalvikcache_data_file:file write;

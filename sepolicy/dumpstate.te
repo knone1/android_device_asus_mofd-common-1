@@ -1,0 +1,10 @@
+# Additional rules for dumpstate
+allow dumpstate fuse:dir { search write add_name setattr remove_name};
+allow dumpstate fuse:file create_file_perms;
+allow dumpstate unlabeled:filesystem getattr;
+
+userdebug_or_eng(`
+        allow dumpstate bt_device:chr_file r_file_perms;
+')
+
+
